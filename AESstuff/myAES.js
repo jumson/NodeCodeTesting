@@ -15,9 +15,19 @@ var encpt = function(msg, pass) {
 
 // plain text decrypt
 var decpt = function(msg, pass) {
-    var d = c.decrypt(msg, pass)
-    return d.toString
+    var d = c.decrypt(msg, pass);
+    return d.toString(encodeing);
 }
+
+/* usage example
+    const c = require('./myAES.js');
+    var msg = 'this is the test message'
+    var pass = 'this is the password'
+    e = c.encpt(msg,pass)
+        //stdout: 'U2FsdGVkX1+3y+67WRaanmii9kY26Q5gViOjj0s91GOHa3/rn0pPcQy7srNkar3R'
+    d = c.decpt(e,pass)
+        //stdout: 'this is the test message'
+*/
 
 // export the module
 module.exports = {
