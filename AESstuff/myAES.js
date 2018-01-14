@@ -7,13 +7,20 @@
 const c = require('crypto-js').AES;
 const encodeing = require('crypto-js').enc.Utf8;
 
-// plain test encrypt
-function encpt(msg, pass) {
+// plain text encrypt
+var encpt = function(msg, pass) {
     var e = c.encrypt(msg, pass);
     return e.toString();
 }
 
-function decpt(msg, pass) {
+// plain text decrypt
+var decpt = function(msg, pass) {
     var d = c.decrypt(msg, pass)
     return d.toString
 }
+
+// export the module
+module.exports = {
+    encpt: encpt,
+    decpt: decpt
+};
